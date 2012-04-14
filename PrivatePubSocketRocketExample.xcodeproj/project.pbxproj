@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4297B6CF1539F77E00EFC471 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297B6CE1539F77E00EFC471 /* UIKit.framework */; };
+		4297B6D11539F77E00EFC471 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297B6D01539F77E00EFC471 /* Foundation.framework */; };
+		4297B6D31539F77E00EFC471 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297B6D21539F77E00EFC471 /* CoreGraphics.framework */; };
+		4297B6D91539F77E00EFC471 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4297B6D71539F77E00EFC471 /* InfoPlist.strings */; };
+		4297B6DB1539F77E00EFC471 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4297B6DA1539F77E00EFC471 /* main.m */; };
+		4297B6DF1539F77E00EFC471 /* RRAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4297B6DE1539F77E00EFC471 /* RRAAppDelegate.m */; };
+		4297B6E21539F77E00EFC471 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4297B6E01539F77E00EFC471 /* MainStoryboard.storyboard */; };
+		4297B6E51539F77E00EFC471 /* RRAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4297B6E41539F77E00EFC471 /* RRAViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4297B6CA1539F77E00EFC471 /* PrivatePubSocketRocketExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivatePubSocketRocketExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4297B6CE1539F77E00EFC471 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4297B6D01539F77E00EFC471 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4297B6D21539F77E00EFC471 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4297B6D61539F77E00EFC471 /* PrivatePubSocketRocketExample-Info.plist */ = {isa = PBXFileReference; path = "PrivatePubSocketRocketExample-Info.plist"; sourceTree = "<group>"; };
+		4297B6D81539F77E00EFC471 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4297B6DA1539F77E00EFC471 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4297B6DC1539F77E00EFC471 /* PrivatePubSocketRocketExample-Prefix.pch */ = {isa = PBXFileReference; path = "PrivatePubSocketRocketExample-Prefix.pch"; sourceTree = "<group>"; };
+		4297B6DD1539F77E00EFC471 /* RRAAppDelegate.h */ = {isa = PBXFileReference; path = RRAAppDelegate.h; sourceTree = "<group>"; };
+		4297B6DE1539F77E00EFC471 /* RRAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRAAppDelegate.m; sourceTree = "<group>"; };
+		4297B6E11539F77E00EFC471 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4297B6E31539F77E00EFC471 /* RRAViewController.h */ = {isa = PBXFileReference; path = RRAViewController.h; sourceTree = "<group>"; };
+		4297B6E41539F77E00EFC471 /* RRAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRAViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4297B6C71539F77E00EFC471 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4297B6CF1539F77E00EFC471 /* UIKit.framework in Frameworks */,
+				4297B6D11539F77E00EFC471 /* Foundation.framework in Frameworks */,
+				4297B6D31539F77E00EFC471 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4297B6BF1539F77E00EFC471 = {
+			isa = PBXGroup;
+			children = (
+				4297B6D41539F77E00EFC471 /* PrivatePubSocketRocketExample */,
+				4297B6CD1539F77E00EFC471 /* Frameworks */,
+				4297B6CB1539F77E00EFC471 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4297B6CB1539F77E00EFC471 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4297B6CA1539F77E00EFC471 /* PrivatePubSocketRocketExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4297B6CD1539F77E00EFC471 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4297B6CE1539F77E00EFC471 /* UIKit.framework */,
+				4297B6D01539F77E00EFC471 /* Foundation.framework */,
+				4297B6D21539F77E00EFC471 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4297B6D41539F77E00EFC471 /* PrivatePubSocketRocketExample */ = {
+			isa = PBXGroup;
+			children = (
+				4297B6DD1539F77E00EFC471 /* RRAAppDelegate.h */,
+				4297B6DE1539F77E00EFC471 /* RRAAppDelegate.m */,
+				4297B6E01539F77E00EFC471 /* MainStoryboard.storyboard */,
+				4297B6E31539F77E00EFC471 /* RRAViewController.h */,
+				4297B6E41539F77E00EFC471 /* RRAViewController.m */,
+				4297B6D51539F77E00EFC471 /* Supporting Files */,
+			);
+			path = PrivatePubSocketRocketExample;
+			sourceTree = "<group>";
+		};
+		4297B6D51539F77E00EFC471 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4297B6D61539F77E00EFC471 /* PrivatePubSocketRocketExample-Info.plist */,
+				4297B6D71539F77E00EFC471 /* InfoPlist.strings */,
+				4297B6DA1539F77E00EFC471 /* main.m */,
+				4297B6DC1539F77E00EFC471 /* PrivatePubSocketRocketExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4297B6C91539F77E00EFC471 /* PrivatePubSocketRocketExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4297B6E81539F77E00EFC471 /* Build configuration list for PBXNativeTarget "PrivatePubSocketRocketExample" */;
+			buildPhases = (
+				4297B6C61539F77E00EFC471 /* Sources */,
+				4297B6C71539F77E00EFC471 /* Frameworks */,
+				4297B6C81539F77E00EFC471 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrivatePubSocketRocketExample;
+			productName = PrivatePubSocketRocketExample;
+			productReference = 4297B6CA1539F77E00EFC471 /* PrivatePubSocketRocketExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4297B6C11539F77E00EFC471 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RRA;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Weluse gmbH";
+			};
+			buildConfigurationList = 4297B6C41539F77E00EFC471 /* Build configuration list for PBXProject "PrivatePubSocketRocketExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4297B6BF1539F77E00EFC471;
+			productRefGroup = 4297B6CB1539F77E00EFC471 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4297B6C91539F77E00EFC471 /* PrivatePubSocketRocketExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4297B6C81539F77E00EFC471 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4297B6D91539F77E00EFC471 /* InfoPlist.strings in Resources */,
+				4297B6E21539F77E00EFC471 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4297B6C61539F77E00EFC471 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4297B6DB1539F77E00EFC471 /* main.m in Sources */,
+				4297B6DF1539F77E00EFC471 /* RRAAppDelegate.m in Sources */,
+				4297B6E51539F77E00EFC471 /* RRAViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4297B6D71539F77E00EFC471 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4297B6D81539F77E00EFC471 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4297B6E01539F77E00EFC471 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4297B6E11539F77E00EFC471 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4297B6E61539F77E00EFC471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4297B6E71539F77E00EFC471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4297B6E91539F77E00EFC471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PrivatePubSocketRocketExample/PrivatePubSocketRocketExample-Prefix.pch";
+				INFOPLIST_FILE = "PrivatePubSocketRocketExample/PrivatePubSocketRocketExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4297B6EA1539F77E00EFC471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PrivatePubSocketRocketExample/PrivatePubSocketRocketExample-Prefix.pch";
+				INFOPLIST_FILE = "PrivatePubSocketRocketExample/PrivatePubSocketRocketExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4297B6C41539F77E00EFC471 /* Build configuration list for PBXProject "PrivatePubSocketRocketExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4297B6E61539F77E00EFC471 /* Debug */,
+				4297B6E71539F77E00EFC471 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4297B6E81539F77E00EFC471 /* Build configuration list for PBXNativeTarget "PrivatePubSocketRocketExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4297B6E91539F77E00EFC471 /* Debug */,
+				4297B6EA1539F77E00EFC471 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4297B6C11539F77E00EFC471 /* Project object */;
+}
