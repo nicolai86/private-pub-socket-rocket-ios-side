@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PrivatePubWebSocketDelegate.h"
+#import "SRWebSocket.h"
+#import "AFJSONRequestOperation.h"
+
 @interface RRAViewController : UIViewController
 
 @end
