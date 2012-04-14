@@ -8,86 +8,90 @@
 
 #import "PrivatePubWebSocketDelegate.h"
 
-  @interface PrivatePubWebSocketDelegate()
-    @property (nonatomic) int messageId;
-    @property (nonatomic, retain) SRWebSocket *webSocket;
-  @end
+@interface PrivatePubWebSocketDelegate()
+  @property (nonatomic) int messageId;
+  @property (nonatomic, retain) SRWebSocket *webSocket;
+@end
 
-  @implementation PrivatePubWebSocketDelegate
+@implementation PrivatePubWebSocketDelegate
 
-  @synthesize clientId = _clientId,
-              privatePubSignature = _privatePubToken,
-              privatePubTimestamp = _privatePubTimestamp,
-              channel = _channel,
-              messageId = _messageId,
-              webSocket = _webSocket;
+@synthesize clientId = _clientId,
+            privatePubSignature = _privatePubToken,
+            privatePubTimestamp = _privatePubTimestamp,
+            channel = _channel,
+            messageId = _messageId,
+            webSocket = _webSocket;
 
-  #pragma mark - Initializers
+#pragma mark - Initializers
 
-  - (id) init {
-    self = [super init];
+- (id) init {
+  self = [super init];
 
-    if (self) {
-      self.messageId = 1;
-      self.privatePubSignature = self.privatePubTimestamp = NULL;
-    }
-
-    return self;
+  if (self) {
+    self.messageId = 1;
+    self.privatePubSignature = self.privatePubTimestamp = NULL;
   }
 
-  - (id) initWithPrivatePubTimestamp:(NSString*) aTimestamp andSignature:(NSString*)aSignature andChannel:(NSString *)aChannel {
-    self = [self init];
+  return self;
+}
 
-    if (self) {
-      self.privatePubTimestamp = aTimestamp;
-      self.privatePubSignature = aSignature;
-      self.channel = aChannel;
-    }
+- (id) initWithPrivatePubTimestamp:(NSString*) aTimestamp andSignature:(NSString*)aSignature andChannel:(NSString *)aChannel {
+  self = [self init];
 
-    return self;
+  if (self) {
+    self.privatePubTimestamp = aTimestamp;
+    self.privatePubSignature = aSignature;
+    self.channel = aChannel;
   }
 
-  - (void) disconnect {
-    assert(self.webSocket != NULL);
+  return self;
+}
 
-    NSDictionary *disconnect = [NSDictionary dictionaryWithObjectsAndKeys:
-      @"/meta/disconnect", @"channel",
-      self.clientId, @"clientId",
-      [NSNumber numberWithInt:self.messageId++], @"id",
-      nil];
-    [self.webSocket send: [disconnect JSONRepresentation]];
-  }
+- (void) disconnect {
+  assert(self.webSocket != NULL);
 
-  #pragma mark - SRWebSocketDelegate Protocol Methods
+  NSDictionary *disconnect = [NSDictionary dictionaryWithObjectsAndKeys:
+    @"/meta/disconnect", @"channel",
+    self.clientId, @"clientId",
+    [NSNumber numberWithInt:self.messageId++], @"id",
+    nil];
+  [self.webSocket send: [disconnect JSONRepresentation]];
+}
 
-  - (void) webSocket:(SRWebSocket *)webSocket didReceiveMessage:(NSString *)message {
-    NSLog(@"base class, nothing happens!");
-  }
+#pragma mark - SRWebSocketDelegate Protocol Methods
 
-  - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    NSLog(@"WebSocket did fail: %@", error);
-  }
+- (void) webSocket:(SRWebSocket *)webSocket didReceiveMessage:(NSString *)message {
+  NSLog(@"base class, nothing happens!");
+}
 
-  - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-    NSLog(@"WebSocket did close: %@ (%d)", reason, code);
-  }
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
+  NSLog(@"WebSocket did fail: %@", error);
+}
 
-  - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
-    NSLog(@"WebSocket is open");
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+  NSLog(@"WebSocket did close: %@ (%d)", reason, code);
+}
 
-    NSDictionary *handshake = [NSDictionary dictionaryWithObjectsAndKeys:
-      @"/meta/handshake", @"channel",
-      [NSNumber numberWithFloat:1.0], @"version",
-      [NSArray arrayWithObjects:@"websocket", nil], @"supportedConnectionTypes",
-      [NSNumber numberWithInt:self.messageId++], @"id",
-      nil];
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket {
+  NSLog(@"WebSocket is open");
 
-    isa = [AwaitingHandshakeState class];
+  NSDictionary *handshake = [NSDictionary dictionaryWithObjectsAndKeys:
+    @"/meta/handshake", @"channel",
+    [NSNumber numberWithFloat:1.0], @"version",
+    [NSArray arrayWithObjects:@"websocket", nil], @"supportedConnectionTypes",
+    [NSNumber numberWithInt:self.messageId++], @"id",
+    nil];
 
-    [webSocket send:[handshake JSONRepresentation]];
-  }
+  isa = [AwaitingHandshakeState class];
+
+  [webSocket send:[handshake JSONRepresentation]];
+}
 
 @end  
+
+///
+//
+///
 
 @implementation AwaitingHandshakeState
 
@@ -113,6 +117,10 @@
 
 @end 
 
+///
+//
+///
+
 @implementation SubscriptionState
 
   - (void) sendSubscriptions {
@@ -137,15 +145,25 @@
     if (subscriptionWasSuccessful) {
       NSLog(@"Now subscribed to %@", self.channel);
 
-      isa = [OffersWebSocketClient class];
+      isa = [KeepAliveState class];
 
-      [(OffersWebSocketClient *)self setupKeepAlive];
+      [(KeepAliveState *)self setupKeepAlive];
     }
   }
 
 @end
 
-@implementation OffersWebSocketClient
+///
+//
+///
+
+@interface KeepAliveState()
+    @property (nonatomic) int timeout;
+
+    - (void) sendKeepAlive;
+@end
+
+@implementation KeepAliveState
 
   @synthesize timeout = _timeout;
 

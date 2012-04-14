@@ -33,13 +33,8 @@
 
 @end
 
-@interface OffersWebSocketClient : PrivatePubWebSocketDelegate
+@interface KeepAliveState : PrivatePubWebSocketDelegate
 
   - (void) setupKeepAlive;
 
-  @end
-  @interface OffersWebSocketClient()
-    @property (nonatomic) int timeout;
-
-    - (void) sendKeepAlive;
 @end

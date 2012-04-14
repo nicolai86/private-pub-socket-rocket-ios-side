@@ -8,26 +8,26 @@
 
 #import "RRAViewController.h"
 
+#define NEW_MESSAGES_CHANNEL @"/messages/new"
+
 @interface RRAViewController ()
   @property (nonatomic, retain) SRWebSocket *websocketClient;
-@property (nonatomic, retain) OffersWebSocketClient* websocketDelegate;
+  @property (nonatomic, retain) PrivatePubWebSocketDelegate* websocketDelegate;
+  
+  - (void) fetchPrivatePubConfiguration;
+  - (void) initializePrivatePubClientWithSubscriptionInformation: (id) JSON;
 @end
 
 @implementation RRAViewController
-@synthesize websocketClient = _websocketClient, websocketDelegate = _websocketDelegate;
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  
-  NSString *resourceUrl = [NSString stringWithFormat:@"http://localhost:3000/api/websockets/configuration.json?channel=%@", @"/messages/new"];
-  NSURL *url = [NSURL URLWithString:resourceUrl];
-  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+@synthesize websocketClient = _websocketClient, 
+            websocketDelegate = _websocketDelegate;
 
-  AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request 
-    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON){
-      self.websocketDelegate = [[PrivatePubWebSocketDelegate alloc] initWithPrivatePubTimestamp:[NSString stringWithFormat:@"%@", [JSON valueForKeyPath:@"timestamp"]] andSignature:[NSString stringWithFormat:@"%@", [JSON valueForKeyPath:@"signature"]] andChannel:@"/messages/new"];
-  
-  NSLog(@"%@", JSON);
+- (void) initializePrivatePubClientWithSubscriptionInformation: (id) JSON {
+  self.websocketDelegate = [[PrivatePubWebSocketDelegate alloc] 
+    initWithPrivatePubTimestamp: [JSON valueForKeyPath:@"timestamp"] 
+    andSignature: [JSON valueForKeyPath:@"signature"] 
+    andChannel:NEW_MESSAGES_CHANNEL];
   
   NSString *server = [JSON valueForKeyPath:@"server"];
   NSURL *url = [NSURL URLWithString:server];
@@ -37,15 +37,29 @@
   self.websocketClient.delegate = self.websocketDelegate;
     
   [self.websocketClient open];
+}
+
+- (void) fetchPrivatePubConfiguration {  
+  NSString *resourceUrl = [NSString stringWithFormat:@"http://localhost:3000/api/websockets/configuration.json?channel=%@", NEW_MESSAGES_CHANNEL];
+  NSURL *url = [NSURL URLWithString:resourceUrl];
+  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+  AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request 
+    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+      [self initializePrivatePubClientWithSubscriptionInformation: JSON];
     } 
     failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error, id JSON) {
-      // TODO
       NSLog(@"request was failed: %@", error);
     }
   ];
 
   [operation start];
-	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  [self fetchPrivatePubConfiguration];
 }
 
 - (void)viewDidUnload
